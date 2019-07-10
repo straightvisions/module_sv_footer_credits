@@ -15,7 +15,7 @@
 		public function init() {
 			// Section Info
 			$this->set_section_title( __('Footer Credits', 'sv100_companion' ) )
-				 ->set_section_desc( __( 'Adjust Footer Credit Settings', 'sv100_companion' ) )
+				 ->set_section_desc( __( 'Adjust Footer Credit Settings for SV100 Theme', 'sv100_companion' ) )
 				 ->set_section_type( 'settings' );
 			
 			$this->get_root()->add_section( $this );
