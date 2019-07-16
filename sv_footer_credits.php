@@ -41,7 +41,7 @@
 		}
 		public function run(){
 			if($this->get_setting('disable')->run_type()->get_data()){
-				add_filter('sv100_sv_footer_credits', __return_false);
+				add_filter('sv100_sv_footer_credits', '__return_false');
 			}
 			if($this->get_setting('text')->run_type()->get_data() && strlen(trim($this->get_setting('text')->run_type()->get_data())) > 0){
 				add_filter('sv100_sv_footer_credits_text', function(){ return $this->get_setting('text')->run_type()->get_data(); });
