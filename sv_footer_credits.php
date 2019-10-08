@@ -13,25 +13,28 @@
 	
 	class sv_footer_credits extends modules {
 		public function init() {
-			// Section Info
-			$this->set_section_title( __('Footer Credits', 'sv100_companion' ) )
-				 ->set_section_desc( __( 'Adjust Footer Credit Settings for SV100 Theme', 'sv100_companion' ) )
-				 ->set_section_type( 'settings' );
-			
-			$this->get_root()->add_section( $this );
-			
-			$this->load_settings()->run();
+			add_action('init', array($this, 'wp_init'));
+		}
+		public function wp_init(){
+			if($this->is_instance_active('sv100')) {
+				// Section Info
+				$this->set_section_title( __( 'Footer Credits', 'sv100_companion' ) )
+					 ->set_section_desc( __( 'Adjust Footer Credit Settings for SV100 Theme', 'sv100_companion' ) )
+					 ->set_section_type( 'settings' );
+				
+				$this->get_root()->add_section( $this );
+				
+				$this->load_settings()->run();
+			}
 		}
 		
 		protected function load_settings(): sv_footer_credits {
-			$this->s['disable'] =
 				$this->get_setting()
 					 ->set_ID( 'disable' )
 					 ->set_title( __( 'Disable credits footer at all.', 'sv100_companion' ) )
 					 ->set_default_value( 0 )
 					 ->load_type( 'checkbox' );
-			
-			$this->s['text'] =
+				
 				$this->get_setting()
 					 ->set_ID( 'text' )
 					 ->set_title( __( 'Set your own text for credits.', 'sv100_companion' ) )
