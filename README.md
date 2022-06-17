@@ -1,1 +1,0 @@
-# plugin_sv100-copyright-footer-notice-removal
